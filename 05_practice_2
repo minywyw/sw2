@@ -1,0 +1,35 @@
+# sw2unsigned int toggle;
+
+void setup() {
+  pinMode(7, OUTPUT);
+  Serial.begin(115200); //Initialize serial port
+  while (!Serial) {
+    ; // wait for serial port to connect.
+  }
+  toggle = 0;
+  digitalWrite(7, toggle); // turn on LED.
+  delay(1000); // wait for 1,000 milliseconds
+ }
+
+void loop() {
+
+  toggle = toggle_state(toggle); // toggle LED value.
+  digitalWrite(7, toggle); // update LED status.
+  delay(1000); // wait for 1,000 milliseconds
+
+  while(toggle < 5) {
+    digitalWrite(7, 1); //LED OFF
+    delay(100);
+    
+    digitalWrite(7, 0);  //LED ON
+    delay(100);
+   
+    toggle++;   //변수 1씩 추가
+  }
+ while(1) {
+    digitalWrite(7, 1);
+  }
+}
+int toggle_state(int toggle) {
+
+}
